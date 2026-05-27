@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Digit Predictor (28x28)</title>
+    <style>
+      body {
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial,
+          "Noto Sans", "Liberation Sans", sans-serif;
+        margin: 24px;
+        color: #111827;
+        background: #f9fafb;
+      }
+      .card {
+        max-width: 920px;
+        background: #ffffff;
+        border: 1px solid #e5e7eb;
+        border-radius: 12px;
+        padding: 18px;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+      }
+      .row {
+        display: grid;
+        grid-template-columns: 360px 1fr;
+        gap: 18px;
+        align-items: start;
+      }
+      @media (max-width: 860px) {
+        .row {
+          grid-template-columns: 1fr;
+        }
+      }
+      canvas {
+        width: 336px; /* 28 * 12 */
+        height: 336px;
+        border: 1px solid #d1d5db;
+        border-radius: 10px;
+        background: #000;
+        image-rendering: pixelated;
+        touch-action: none;
+      }
+      .controls {
+        display: flex;
+        gap: 10px;
+        margin-top: 12px;
+        flex-wrap: wrap;
+      }
+      button {
+        border: 1px solid #d1d5db;
+        background: #fff;
+        padding: 10px 12px;
+        border-radius: 10px;
+        cursor: pointer;
+        font-weight: 600;
+      }
+      button.primary {
+        background: #111827;
+        color: #fff;
+        border-color: #111827;
+      }
+      .hint {
+        font-size: 13px;
+        color: #6b7280;
+        margin-top: 8px;
+        line-height: 1.4;
+      }
+      .result {
+        font-size: 18px;
+        font-weight: 700;
+        margin: 8px 0 10px;
+      }
+      .bars {
+        display: grid;
+        gap: 8px;
+      }
+      .bar {
+        display: grid;
+        grid-template-columns: 24px 1fr 56px;
+        gap: 10px;
+        align-items: center;
+      }
+      .bar .track {
+        height: 10px;
+        background: #e5e7eb;
+        border-radius: 999px;
+        overflow: hidden;
+      }
+      .bar .fill {
+        height: 100%;
+        width: 0%;
+        background: #2563eb;
+      }
+      .bar .pct {
+        font-variant-numeric: tabular-nums;
+        text-align: right;
+        color: #374151;
+        font-size: 13px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h2 style="margin: 0 0 14px">Digit predictor (28×28)</h2>
+      <div class="row">
+        <div>
+          <canvas id="c" width="28" height="28"></canvas>
+          <div class="controls">
+            <button id="clear">Clear</button>
+            <button class="primary" id="predict">Predict</button>
+          </div>
+          <div class="hint">
+            - Canvas backend là 28×28 pixel (đúng MNIST).<br />
+            - Nền đen, nét trắng để match MNIST (0=đen, 255=trắng).<br />
+            - Vẽ to và ở giữa để dễ đoán.
+          </div>
+        </div>
+        <div>
+          <div class="result" id="result">Prediction: —</div>
+          <div class="bars" id="bars"></div>
+          <div class="hint" id="err" style="color: #b91c1c"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>
+
