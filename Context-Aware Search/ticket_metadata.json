@@ -1,0 +1,162 @@
+[
+  {
+    "id": "T-101",
+    "team": "infrastructure",
+    "status": "open",
+    "priority": "high",
+    "created": "2025-11-03",
+    "text": "Kubernetes pod keeps crashing with OOMKilled \u2014 memory limits on the ML inference container are set too low for the model it loads at runtime."
+  },
+  {
+    "id": "T-102",
+    "team": "infrastructure",
+    "status": "open",
+    "priority": "high",
+    "created": "2025-11-08",
+    "text": "Nginx ingress returning 502 after rotating TLS certificate. Chain is valid per openssl verify but the backend handshake fails immediately."
+  },
+  {
+    "id": "T-103",
+    "team": "infrastructure",
+    "status": "resolved",
+    "priority": "medium",
+    "created": "2025-10-14",
+    "text": "Terraform state file locked in S3 \u2014 a team member force-applied a plan without releasing the DynamoDB lock first."
+  },
+  {
+    "id": "T-104",
+    "team": "infrastructure",
+    "status": "open",
+    "priority": "medium",
+    "created": "2025-11-12",
+    "text": "Prometheus high-cardinality metric explosion \u2014 per-request labels in series names causing memory pressure on the Thanos compactor."
+  },
+  {
+    "id": "T-105",
+    "team": "infrastructure",
+    "status": "resolved",
+    "priority": "low",
+    "created": "2025-09-28",
+    "text": "Worker node disk pressure \u2014 build cache written to ephemeral storage is never cleaned between CI jobs, filling the volume over a weekend."
+  },
+  {
+    "id": "T-201",
+    "team": "backend",
+    "status": "open",
+    "priority": "high",
+    "created": "2025-11-05",
+    "text": "OAuth2 token refresh fails intermittently \u2014 race condition in the token cache where two threads both detect expiry and attempt refresh simultaneously."
+  },
+  {
+    "id": "T-202",
+    "team": "backend",
+    "status": "open",
+    "priority": "high",
+    "created": "2025-11-09",
+    "text": "Database connection pool exhausted under load \u2014 pool capped at 20 connections but the API handles 300 concurrent requests at peak, causing timeouts."
+  },
+  {
+    "id": "T-203",
+    "team": "backend",
+    "status": "open",
+    "priority": "medium",
+    "created": "2025-11-01",
+    "text": "JWT signature verification fails intermittently \u2014 clock skew of 4 seconds between the auth service and API gateway exceeds the token's nbf tolerance."
+  },
+  {
+    "id": "T-204",
+    "team": "backend",
+    "status": "resolved",
+    "priority": "medium",
+    "created": "2025-10-20",
+    "text": "GraphQL resolver N+1 problem \u2014 fetching 50 orders triggers 51 separate SQL queries instead of a single join with eager loading."
+  },
+  {
+    "id": "T-205",
+    "team": "backend",
+    "status": "open",
+    "priority": "low",
+    "created": "2025-11-07",
+    "text": "Celery worker silently dropping tasks when Redis broker restarts \u2014 no retry policy or dead-letter queue configured for the affected task type."
+  },
+  {
+    "id": "T-206",
+    "team": "backend",
+    "status": "open",
+    "priority": "high",
+    "created": "2025-11-13",
+    "text": "Rate limiting not scoping per user \u2014 middleware uses a shared Redis key derived from IP, so all users behind a corporate NAT share one limit."
+  },
+  {
+    "id": "T-207",
+    "team": "backend",
+    "status": "open",
+    "priority": "high",
+    "created": "2025-11-03",
+    "text": "Session cookie persists after logout \u2014 token blacklist check is missing from the middleware chain, so invalidated tokens remain usable until natural expiry."
+  },
+  {
+    "id": "T-301",
+    "team": "frontend",
+    "status": "open",
+    "priority": "high",
+    "created": "2025-11-06",
+    "text": "React hydration mismatch on SSR pages \u2014 useLayoutEffect runs server-side in the test environment, producing HTML that diverges from the client tree."
+  },
+  {
+    "id": "T-302",
+    "team": "frontend",
+    "status": "open",
+    "priority": "medium",
+    "created": "2025-11-02",
+    "text": "Safari 17 CSS grid regression \u2014 gap property ignored when the grid parent has overflow: hidden, works correctly in Chrome and Firefox."
+  },
+  {
+    "id": "T-303",
+    "team": "frontend",
+    "status": "resolved",
+    "priority": "medium",
+    "created": "2025-10-18",
+    "text": "Webpack 5 bundle size regression \u2014 all date-fns locales included despite tree-shaking config because the barrel export bypasses static analysis."
+  },
+  {
+    "id": "T-304",
+    "team": "frontend",
+    "status": "open",
+    "priority": "low",
+    "created": "2025-11-10",
+    "text": "WebSocket silently drops after 60 seconds \u2014 ALB idle timeout is 60s but client reconnect logic fires at 90s, leaving a 30-second silent failure window."
+  },
+  {
+    "id": "T-305",
+    "team": "frontend",
+    "status": "open",
+    "priority": "low",
+    "created": "2025-11-04",
+    "text": "Modal dialog fails WCAG 2.1 focus trap \u2014 keyboard focus escapes the overlay and reaches background content when tabbing past the last button."
+  },
+  {
+    "id": "T-306",
+    "team": "frontend",
+    "status": "resolved",
+    "priority": "low",
+    "created": "2025-10-25",
+    "text": "Infinite scroll sending duplicate requests on fast scroll \u2014 IntersectionObserver fires multiple times before the debounce window closes."
+  },
+  {
+    "id": "T-401",
+    "team": "infrastructure",
+    "status": "open",
+    "priority": "medium",
+    "created": "2025-11-11",
+    "text": "CI pipeline fails on ARM64 runners \u2014 base Docker image has no ARM variant, exec format error at build stage."
+  },
+  {
+    "id": "T-402",
+    "team": "infrastructure",
+    "status": "resolved",
+    "priority": "high",
+    "created": "2025-10-09",
+    "text": "VPN gateway latency spikes at peak hours \u2014 BGP route flapping between two peers causing intermittent packet loss across the private subnet."
+  }
+]
