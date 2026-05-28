@@ -13,5 +13,4 @@ for t in tickets_loaded:
  
 model = SentenceTransformer("all-MiniLM-L6-v2")
 index = ContextAwareIndex(embeddings_loaded, tickets_loaded)
- 
 print(f"Reloaded: {embeddings_loaded.shape[0]} docs, {embeddings_loaded.shape[1]}D.")
