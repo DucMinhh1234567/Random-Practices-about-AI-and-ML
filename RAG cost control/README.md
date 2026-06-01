@@ -29,3 +29,9 @@ Trong trường hợp 2 user hỏi cùng 1 câu hỏi hoặc 2 câu hỏi có ý
 Một số pipeline thường mặc định duy nhất một model cho mọi query, mặc cho độ phức tạp của query có cao hay không
 Một câu hỏi đơn giản như: "RAG là gì?" không cần thiết phải đưa vào một model cao hay cần reasoning nhiều bước để trả lời. Chỉ cần một model nhanh, rẻ để trả lời trong tgian ngắn.
 
+
+
+
+
+
+link tham khảo: https://towardsdatascience.com/rag-is-burning-money-i-built-a-cost-control-layer-to-fix-it/
