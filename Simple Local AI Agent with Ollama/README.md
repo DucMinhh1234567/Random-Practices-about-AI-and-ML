@@ -7,4 +7,6 @@ Giống một repo mô phỏng cách AI Agent hoạt động hơn là 1 Agent th
 
 Chủ yếu dùng để học cách sử dụng LangChain để tạo ra 1 Agent đơn giản và cách hoạt động của AI Agent
 
-link tham khảo: https://machinelearningmastery.com/building-ai-agents-with-local-small-language-models/
+link tham khảo: 
+https://machinelearningmastery.com/building-ai-agents-with-local-small-language-models/
+https://machinelearningmastery.com/building-react-agents-with-langgraph-a-beginners-guide/
